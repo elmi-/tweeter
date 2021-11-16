@@ -1,0 +1,30 @@
+/**
+Nav Layout 
+**/
+body > nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+#logo {
+  font-family: "Bungee", cursive;
+  font-size: 36px;
+}
+
+#nav-call {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fa-angle-double-down  {
+  font-size: 18px;
+  color: #D44338;
+  display: block;
+}

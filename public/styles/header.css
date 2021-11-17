@@ -8,3 +8,7 @@ header {
   background-color: #9f9793;
   background-image: url(/images/dust.png);
 }
+
+header  h2 {
+  margin: 0;
+}

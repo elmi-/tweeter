@@ -1,0 +1,46 @@
+.new-tweet {
+  /* align-self: center; */
+  width: 100%;
+  height: 25%;
+}
+
+.new-tweet label {
+  display: block;
+  font-weight: 600;
+  border-bottom: 0.1em;
+}
+
+.new-tweet textarea {
+  margin: 5px auto;
+  background: transparent;
+  border: transparent;;
+  border-bottom: 2px solid #555149;
+  width: 100%;
+  resize: vertical;
+}
+
+::placeholder {
+  color: #999999;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.new-tweet div {
+  font-family: "Bungee", cursive;
+}
+
+.new-tweet .counter {
+  float: right;
+}
+
+.new-tweet button {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+}
+
+.new-tweet button:hover {
+  cursor: pointer;
+  background-color: #3e5cbe;
+}

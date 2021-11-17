@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,7 +35,7 @@
     <nav>
       <span id="logo">tweeter</span><span id="nav-call">Write a new tweet<i class="fas fa-angle-double-down"></i></span>
     </nav>
-    <header>
+    <header class="main-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -56,10 +57,23 @@
           </div>
         </form>
       </section>
-      <div>
-        <h1>Main Content</h1>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </div>
+      <article class="tweets">
+        <header>
+          <h1><em class="fas fa-user-alt"></em> <!-- TODO: replace with user image--> Tweeter Name</h1>
+          <h2>@SirIsaac</h2>
+        </header>
+        <p>
+          If I have seen further it is by standing on the shoulders of giants
+        </p>
+        <footer>
+          <em class="date">10 Days Ago</em>
+          <section class="icons">
+            <em class="fas fa-flag"></em>
+            <em class="fas fa-retweet"></em>
+            <em class="fas fa-heart"></em>
+          </section>
+        </footer>
+      </article>
     </main>
   </body>
 </html>

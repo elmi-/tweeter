@@ -1,0 +1,60 @@
+.tweets {
+  border: 3px solid #555149;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweets:hover {
+  box-shadow: 6px 5px 3px 0px #C9CAE2;
+  cursor: pointer;
+}
+
+.tweets header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0.5em;
+}
+.tweets header * {
+  margin: 0;
+}
+
+.tweets header h1 {
+  font-weight: 100;
+}
+
+.tweets header h2 {
+  opacity: 0.25;
+}
+
+/** TEMP image, TODO: replace with image **/
+.tweets header em  {
+  height: 50px;
+  width: 50px;
+}
+
+.tweets p {
+  margin: 1em 0.5em;
+}
+
+.tweets footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 0.75em;
+  border-top: 3px solid #555149;
+}
+.tweets footer .date {
+  font-style: normal;
+  font-weight: 600;
+}
+.tweets footer .icons * {
+  color: #4056A1;
+  margin: 0 0 0 5px;
+}
+.tweets footer .icons *:hover {
+  color: #C7982C;
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-header {
+.main-header {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,6 +9,6 @@ header {
   background-image: url(/images/dust.png);
 }
 
-header  h2 {
+.main-header  h2 {
   margin: 0;
 }

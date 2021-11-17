@@ -33,6 +33,10 @@
   float: right;
 }
 
+.new-tweet .counter.tooManyChars {
+  color: red
+}
+
 .new-tweet button {
   background-color: #4056A1;
   color: #FFFFFF;

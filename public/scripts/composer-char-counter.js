@@ -10,8 +10,14 @@ $(document).ready(function() {
 
     if(tweetLength > maxLength) {
       counter.addClass("tooManyChars");
+      $(".validation-error").slideDown("slow", function() {
+        $(this);
+      });
     } else {
       counter.removeClass("tooManyChars");
+      $(".validation-error").slideUp("slow", function() {
+        $(this);
+      });
     }
   });
 });

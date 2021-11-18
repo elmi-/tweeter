@@ -58,28 +58,36 @@ const createTweetElement = function(tweet) {
 };
 
 const renderTweets = function(tweets) {
-  // debugger;
   for(const tweet of tweets) {
-    $('#tweet-container').append(createTweetElement(tweet));
+    $('#tweet-container').prepend(createTweetElement(tweet));
   }
 };
 
 $(document).ready(function() {
+  $(".validation-error").css("display", "none");
   $(".new-tweet form").on("submit", function(e) {
     e.preventDefault();
-    const form = $(this);
+    const tweet = $("textarea");
 
-    //validate form data is empty, or exceeds the 140 character limit.
-    const tweetLength = e.currentTarget[0].textLength;
-    if(tweetLength == "" || tweetLength> 140) {
-      alert("ERROR");
+    // validate form data is empty, or exceeds the 140 character limit
+    const currTweet = e.currentTarget[0];
+    debugger;
+    if(currTweet.textLength == "" || currTweet.textLength> 140) {
+      $(".validation-error").slideDown("slow", function() {
+        tweet;
+      });
       return;
+    } else {
+      $(".validation-error").slideUp("slow", function() {
+        tweet;
+      });
     }
 
-    debugger;
-    $.post("/tweets", form.serialize(), (data) => {
-      console.log("data", data)
+    $.post("/tweets", tweet.serialize(), (data) => {
+      loadtweets();
     });
+
+    tweet.val("");
   });
 
   const loadtweets = () => {
@@ -88,5 +96,5 @@ $(document).ready(function() {
     });
   };
 
-  loadtweets(); 
+  loadtweets();
 });

@@ -34,7 +34,7 @@
 }
 
 .new-tweet .counter.tooManyChars {
-  color: #D44338;
+  color: #e74c3c;
 }
 
 .new-tweet button {
@@ -47,4 +47,17 @@
 .new-tweet button:hover {
   cursor: pointer;
   background-color: #C7982C;
+}
+
+.new-tweet .validation-error {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  color: #e74c3c;
+  border: 0.2em solid #e74c3c;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
 }

@@ -67,15 +67,21 @@ const renderTweets = function(tweets) {
 $(document).ready(function() {
   $(".new-tweet form").on("submit", function(e) {
     e.preventDefault();
-    console.log("form submitted");
+    const form = $(this);
 
-    var form = $(this);
-    
+    //validate form data is empty, or exceeds the 140 character limit.
+    const tweetLength = e.currentTarget[0].textLength;
+    if(tweetLength == "" || tweetLength> 140) {
+      alert("ERROR");
+      return;
+    }
+
+    debugger;
     $.post("/tweets", form.serialize(), (data) => {
       console.log("data", data)
     });
   });
-  
+
   const loadtweets = () => {
     $.get("/tweets", (data) => {
       renderTweets(data);

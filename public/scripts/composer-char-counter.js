@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // --- our code goes here ---
   const maxLength = 140;
   const counter = $(".counter");
 

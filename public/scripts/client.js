@@ -59,7 +59,6 @@ const createTweetElement = function(tweet) {
 
 const renderTweets = function(tweets) {
   $('#tweet-container').empty();
-
   for(const tweet of tweets) {
     $('#tweet-container').prepend(createTweetElement(tweet));
   }
@@ -71,8 +70,11 @@ const toggleNewTweetSection = () => {
 
   $("#nav-call").on("click", function() {
     if (newTweetSection.is(":visible")) {
+      // if visible, 1. slide up
       newTweetSection.slideUp("slow");
+      // 2. edit text 
       $("#nav-call span").text("write a new tweet");
+      // 3. and remove close class (handling rotation of icon)
       $("#nav-call em").removeClass("close");
     } else {
       newTweetSection.slideDown("slow");
@@ -84,6 +86,7 @@ const toggleNewTweetSection = () => {
 }
 
 $(document).ready(function() {
+  // show/hide new tweet form
   toggleNewTweetSection();
 
   // load saved tweets on page ready
@@ -128,5 +131,17 @@ $(document).ready(function() {
     // clear textarea and adjust counter to default once successfully posted
     $(".counter").text(140)
     tweet.val("");
+  });
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+      $(".scrollTop").fadeIn();
+    } else {
+      $(".scrollTop").fadeOut();
+    }
+  });
+  
+  $(".scrollTop").click(function() {
+    $("html, body").animate({scrollTop: 0}, 1000);
   });
 });

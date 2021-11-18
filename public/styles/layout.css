@@ -32,3 +32,19 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ em.scrollTop {
+   position: fixed;
+   bottom: 0.5em;
+   right: 0.5em;
+   color: #e74c3c;
+   font-size: 4em;
+   opacity: 0.5;
+   transition: 0.5s;
+   display: none;
+}
+
+.scrollTop:hover {
+  opacity: 1;
+  cursor: pointer;
+}

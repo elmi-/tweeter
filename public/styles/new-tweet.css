@@ -27,10 +27,11 @@
 
 .new-tweet div {
   font-family: "Bungee", cursive;
-}
-
-.new-tweet .counter {
-  float: right;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .new-tweet .counter.tooManyChars {
@@ -56,8 +57,19 @@
   align-items: center;
   align-content: center;
   color: #e74c3c;
+  font-style: normal;
   border: 0.2em solid #e74c3c;
   width: 100%;
   padding: 10px;
   margin: 10px 0;
+}
+
+.new-tweet .validation-error::after {
+  content: "\26A0";
+  font-size: 40px;
+}
+
+.new-tweet .validation-error::before {
+  content: "\26A0";
+  font-size: 40px;
 }

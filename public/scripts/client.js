@@ -58,38 +58,35 @@ const createTweetElement = function(tweet) {
 };
 
 const renderTweets = function(tweets) {
+  $('#tweet-container').empty();
+
   for(const tweet of tweets) {
     $('#tweet-container').prepend(createTweetElement(tweet));
   }
 };
 
-$(document).ready(function() {
-  $(".validation-error").css("display", "none");
-  $(".new-tweet form").on("submit", function(e) {
-    e.preventDefault();
-    const tweet = $("textarea");
+const toggleNewTweetSection = () => {
+  newTweetSection = $(".new-tweet");
+  newTweetSection.css("display", "none");
 
-    // validate form data is empty, or exceeds the 140 character limit
-    const currTweet = e.currentTarget[0];
-    debugger;
-    if(currTweet.textLength == "" || currTweet.textLength> 140) {
-      $(".validation-error").slideDown("slow", function() {
-        tweet;
-      });
-      return;
+  $("#nav-call").on("click", function() {
+    if (newTweetSection.is(":visible")) {
+      newTweetSection.slideUp("slow");
+      $("#nav-call span").text("write a new tweet");
+      $("#nav-call em").removeClass("close");
     } else {
-      $(".validation-error").slideUp("slow", function() {
-        tweet;
-      });
+      newTweetSection.slideDown("slow");
+      $("#tweet-text").focus();
+      $("#nav-call span").text("hide tweet form");
+      $("#nav-call em").addClass("close");
     }
-
-    $.post("/tweets", tweet.serialize(), (data) => {
-      loadtweets();
-    });
-
-    tweet.val("");
   });
+}
 
+$(document).ready(function() {
+  toggleNewTweetSection();
+
+  // load saved tweets on page ready
   const loadtweets = () => {
     $.get("/tweets", (data) => {
       renderTweets(data);
@@ -97,4 +94,39 @@ $(document).ready(function() {
   };
 
   loadtweets();
+
+  $(".validation-error").css("display", "none");
+
+  $(".new-tweet form").on("submit", function(e) {
+    e.preventDefault();
+    const tweet = $("#tweet-text");
+
+    // validate form data is empty
+    if (tweet.val() == "" ) {
+      $(".validation-error").slideDown("slow", function() {
+        this.innerText = "error: tweets cannot be empty #kthxbye";
+      });
+      return;
+    }
+
+    // validate form data exceeds the 140 character limit
+    if (tweet.val().length > 140) {
+      $(".validation-error").slideDown("slow", function() {
+        this.innerText = "error: tweets cannot exceed 140 characters long #kthxbye";
+      });
+      return;
+    }
+
+    // remove error message if issues above resolved
+    $(".validation-error").slideUp("slow");
+
+    // post serialized form to /tweets route and load tweet
+    $.post("/tweets", tweet.serialize(), (data) => {
+      loadtweets();
+    });
+
+    // clear textarea and adjust counter to default once successfully posted
+    $(".counter").text(140)
+    tweet.val("");
+  });
 });

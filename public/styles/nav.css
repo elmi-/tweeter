@@ -24,8 +24,23 @@ body > nav {
   align-items: center;
 }
 
-.fa-angle-double-down  {
-  font-size: 18px;
+#nav-call:hover {
+  cursor: pointer;
+}
+
+#nav-call em  {
+  font-size: 1.2em;
   color: #D44338;
   display: block;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+#nav-call:hover em {
+  cursor: pointer;
+  opacity: 1;
+}
+
+#nav-call em.close {
+  transform: rotate(180deg);
 }

@@ -9,7 +9,7 @@ Tweeter is a simple, single-page Twitter clone. The project is built with HTML, 
 ## Screenshots
 !["Screenshot of tweet"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-saved.PNG)
 !["Screenshot of form error"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-error.PNG)
-!["Screenshot of mobile-friendly tweets"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-saved.PNG)
+!["Screenshot of mobile-friendly tweets"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-responsive.PNG)
 
 
 ## Getting Started

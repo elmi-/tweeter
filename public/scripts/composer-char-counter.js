@@ -5,9 +5,9 @@ $(document).ready(function() {
   $("#tweet-text").on("input", function(event) {
     let tweetLength =  $(this).val().length;
     let charCount = maxLength - tweetLength;
-    counter.html(charCount);
+    counter.text(charCount);
 
-    if(tweetLength > maxLength) {
+    if (tweetLength > maxLength) {
       counter.addClass("tooManyChars");
     } else {
       counter.removeClass("tooManyChars");

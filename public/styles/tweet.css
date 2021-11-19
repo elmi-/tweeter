@@ -36,12 +36,6 @@
   opacity: 0.25;
 }
 
-/** TEMP image, TODO: replace with image **/
-.tweet header em  {
-  height: 50px;
-  width: 50px;
-}
-
 .tweet p {
   margin: 1em 0.5em;
   overflow-wrap: anywhere;
@@ -65,4 +59,10 @@
 .tweet footer .icons *:hover {
   color: #C7982C;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .tweet header {
+    flex-direction: column;
+  }
 }

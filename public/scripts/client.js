@@ -29,22 +29,28 @@ const data = [
   }
 ];
 
-const createTweetElement = function(tweet) {
+const escape = (str) => {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const createTweetElement = (tweet) => {
   const $tweet = $(
     `
     <article class="tweet">
     <header>
         <div>
-        <img src="${ tweet.user.avatars }" />
-          <h1>${ tweet.user.name }</h1>
+        <img src="${ escape(tweet.user.avatars) }" />
+          <h1>${ escape(tweet.user.name) }</h1>
           </div>
-          <h2>${ tweet.user.handle }</h2>
+          <h2>${ escape(tweet.user.handle) }</h2>
       </header>
       <p>
-      ${ tweet.content.text }
+      ${ escape(tweet.content.text) }
       </p>
       <footer>
-        <em class="date">${ timeago.format(tweet.created_at) }</em>
+        <em class="date">${ escape(timeago.format(tweet.created_at)) }</em>
         <section class="icons">
         <em class="fas fa-flag"></em>
           <em class="fas fa-retweet"></em>
@@ -57,7 +63,7 @@ const createTweetElement = function(tweet) {
     return $tweet;
 };
 
-const renderTweets = function(tweets) {
+const renderTweets = (tweets) => {
   $('#tweet-container').empty();
   for(const tweet of tweets) {
     $('#tweet-container').prepend(createTweetElement(tweet));
@@ -85,19 +91,21 @@ const toggleNewTweetSection = () => {
   });
 }
 
-$(document).ready(function() {
-  // show/hide new tweet form
-  toggleNewTweetSection();
-
-  // load saved tweets on page ready
   const loadtweets = () => {
     $.get("/tweets", (data) => {
       renderTweets(data);
     });
   };
 
+$(document).ready(function() {
+  // show/hide new tweet form
+  toggleNewTweetSection();
+  
+  // load saved tweets on page ready
   loadtweets();
 
+
+  //### form validation logic ###///
   $(".validation-error").css("display", "none");
 
   $(".new-tweet form").on("submit", function(e) {
@@ -131,7 +139,9 @@ $(document).ready(function() {
     // clear textarea and adjust counter to default once successfully posted
     $(".counter").text(140)
     tweet.val("");
+    //### end form validation ###//
   });
+
 
   $(window).scroll(function() {
     if ($(this).scrollTop()) {

@@ -49,6 +49,11 @@ main {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 767px) {
+  em.scrollTop {
+    font-size: 2em;
+  }
+}
 
 @media only screen and (min-width: 1024px) {
   body {

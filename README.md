@@ -6,6 +6,12 @@ Tweeter is a simple, single-page Twitter clone. The project is built with HTML, 
 - A client-side Single Page App (SPA) that's mobile-friendly
 - Communicates with a server via AJAX
 
+## Screenshots
+!["Screenshot of tweet"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-saved.PNG)
+!["Screenshot of form error"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-error.PNG)
+!["Screenshot of mobile-friendly tweets"](https://github.com/elmi-/tweeter/blob/master/docs/tweet-saved.PNG)
+
+
 ## Getting Started
 
 1. Fork the repository.
